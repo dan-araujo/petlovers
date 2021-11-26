@@ -1,0 +1,134 @@
+<div class="modal fade" id="modal-form-user" tabindex="-1" role="dialog" aria-labelledby="modalFormUserLabel" aria-hidden="true">
+  <div class="modal-dialog mt-1" role="document">
+    <div class="modal-content modal_content">
+
+      <div class="modal-header">
+        <h5 class="modal-title" id="modalFormUserLabel">Registro de usuários</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+      <div class="modal-body">
+
+        <div class="ctn_criterios_senha_form_user">
+          <p class="m-0 text-center">*ATENÇÃO!</p>
+          <p class="m-0">A senha escolhida precisa estar de acordo com os seguintes critérios:</p>
+          <ul>
+            <li>Não pode conter espaços</li>
+            <li>Conter entre 8 e 12 caracteres</li>
+            <li>Conter pelo menos um número</li>
+            <li>Conter pelo menos uma letra</li>
+            <li>Conter pelo menos um dos caracteres especiais:</li>
+            <p class="m-0">( ! ), ( ? ), ( @ ), ( # ), ( $ ), ( % ), ( * ), ( _ ), ( - ), ( . )</p>
+          </ul>
+        </div>
+
+        <form id="form_user" action="/usuarios/cadastrar" method="POST">
+            <div class="d-flex">
+              <div class="form-group w-50 mr-1">
+                <label for="nome_user" class="col-form-label">Nome<span>*</span></label>
+                <input type="text" class="form-control" id="nome_user" name="nome_user" value="<%= formData.nome_user %>">
+              </div>
+              <div class="form-group w-50 ml-1">
+                <label for="cpf" class="col-form-label">CPF<span>*</span></label>
+                <input type="text" class="form-control" id="cpf" name="cpf" value="<%= formData.cpf %>">
+              </div>
+            </div>
+            <div class="form-group">
+                <label for="email" class="col-form-label">E-mail<span>*</span></label>
+                <input type="email" class="form-control" id="email" name="email" value="<%= formData.email %>">
+            </div>
+            <div class="form-group">
+              <label for="email_confirm" class="col-form-label">Confirme seu e-mail<span>*</span></label>
+              <input type="email" class="form-control" id="email_confirm" name="email_confirm" value="<%=formData.email_confirm%>">
+            </div>
+            <div class="d-flex w-100">
+              <div class="form-group w-50 mr-1">
+                  <label for="password" class="col-form-label">Senha<span>*</span></label>
+                  <input type="password" class="form-control" id="password" name="password" value="<%= formData.password %>">
+              </div>
+              <div class="form-group w-50 ml-1">
+                  <label for="password_confirm" class="col-form-label">Confirme a senha<span>*</span></label>
+                  <input type="password" class="form-control" id="password_confirm" name="password_confirm" value="<%= formData.password_confirm %>">
+              </div>
+            </div>
+            <div class="d-flex w-100">
+                <div class="form-group w-50 mr-1">
+                    <label for="telefone" class="col-form-label">Telefone<span>*</span></label>
+                    <input type="tel" class="form-control" id="telefone" name="telefone" value="<%= formData.telefone %>">
+                </div>
+                <div class="form-group w-50 ml-1">
+                    <label for="whatsapp" class="col-form-label">WhatsApp</label>
+                    <input type="tel" class="form-control" id="whatsapp" name="whatsapp" value="<%= formData.whatsapp %>">
+                </div>
+            </div>
+            <div class="d-flex w-100">
+                <div class="form-group w-50 mr-1">
+                    <label for="endereco_user" class="col-form-label">Endereço<span>*</span></label>
+                    <input type="text" class="form-control" id="endereco_user" name="endereco_user" value="<%= formData.endereco_user %>">
+                </div>
+                <div class="form-group w-50 ml-1">
+                    <label for="bairro_user" class="col-form-label">Bairro<span>*</span></label>
+                    <input type="text" class="form-control" id="bairro_user" name="bairro_user" value="<%= formData.bairro_user %>">
+                </div>
+            </div>
+            <div class="d-flex w-100">
+                <div class="form-group w-75 mr-1">
+                    <label for="cidade_user" class="col-form-label">Cidade<span>*</span></label>
+                    <input type="text" class="form-control" id="cidade_user" name="cidade_user" value="<%= formData.cidade_user %>">
+                </div>
+                <div class="form-group w-25 ml-1 mb-0">
+                    <label for="uf_user" class="col-form-label">UF<span>*</span></label>
+                    <select class="custom-select" id="uf_user" name="uf_user" data-uf="<%= formData.uf_user %>">
+                        <option selected>-</option>  
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MT">MT</option>
+                        <option value="MS">MS</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="d-flex align-items-start">
+              <div class="col-form-label pr-1">
+                <input type="checkbox" id="form_user_termos_uso" name="termos_uso" value="ciente">  
+              </div>
+              <label for="form_user_termos_uso" class="col-form-label label_form_user_termos_uso">Declaro que li e aceito os <a href="#" data-toggle="modal" data-target="#modal_termos_uso">Termos</a> e <a href="#" data-toggle="modal" data-target="#modal_termos_uso">Condições</a> de Uso do Site</label>
+            </div>
+
+        </form>
+        
+      </div>
+
+      <div class="modal-footer modal_footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        <button type="button" id="btn_cad_user" class="btn btn-primary">Cadastrar</button>
+        <button type="button" id="btn_update_user" class="btn btn-primary">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

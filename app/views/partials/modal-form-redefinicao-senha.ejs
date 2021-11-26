@@ -1,0 +1,36 @@
+<!-- INICIO MODAL ESQUECI MINHA SENHA -->
+<div class="modal fade" id="modal_form_redefinicao_senha" tabindex="-1" role="dialog" aria-labelledby="TituloModalCentralizado" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="titulo_modal_form_redefinicao_senha">Redefinição de senha</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+
+            <form id="form-pesquisa-usuario" action="/redefinicao_senha" method="POST" novalidate>
+
+                <div class="modal-body">
+                    
+                    <div id="input_email_modal_redef_senha" class="form-group mb-1">
+                        <label for="email_redef_senha">E-mail</label>
+                        <input type="email" class="form-control" id="email_redef_senha" name="email" value="" placeholder="Insira seu email de acesso" maxlength="50">
+                    </div>
+
+                    <div id="area_reply_modal_redef_senha" class="d-none" style="height: 74px;"></div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Fechar</button>
+                    <button type="button" id="btn_voltar_modal_redef_senha" class="btn btn-primary d-none">Voltar</button>
+                    <button type="button" id="btn_pesquisar_modal_redef_senha" class="btn btn-primary">Pesquisar</button>
+                </div>
+
+            </form>  
+            
+        </div>
+    </div>
+</div>
+<!-- FIM MODAL ESQUECI MINHA SENHA -->

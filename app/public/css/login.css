@@ -1,0 +1,78 @@
+@font-face { font-family: Boogaloo; src: url(../fonts/Boogaloo-Regular.ttf); }
+
+.body{
+    background-color: lavender;
+    position: relative;
+}
+
+.reply-modal {
+    position: absolute;
+    width: max-content;
+    z-index: 20;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.modal-header, .modal-footer{
+    background-color: #002f67;
+    color: lightgray;
+}
+
+.modal-body{
+    background-color: lavender;
+}
+
+.bg-light{
+    background-color: lightgray !important;
+}
+
+.close{
+    color: whitesmoke !important;
+}
+
+.ctn-box-login {
+    height: 100vh;
+}
+
+.titulo-principal{
+    font-family: 'Boogaloo', sans-serif;
+    font-weight: 500;
+    text-align: center;
+    color: #002875;
+    font-size: 50px;
+}
+
+.box-login{
+    background: green;
+    color: lightgrey;
+    border: 2px solid #001540;
+    border-radius: 8px;
+}
+
+.titulo-login {
+    font-weight: 400;
+    font-size: 30px;
+}
+
+hr {
+    background-color: #002875;
+    min-height: 2px;
+}
+
+.btn-submit-login {
+    background: radial-gradient(#002875, #001943);
+    color: whitesmoke;
+    border: 2px solid #001540;
+}
+
+.btn-submit-login:hover {
+    background: radial-gradient(#002875, #002875);
+}
+
+.position-relative {
+    position: relative;
+}
+
+#modal_area_resposta_pesquisa_usuario{
+    height: 250px;
+}

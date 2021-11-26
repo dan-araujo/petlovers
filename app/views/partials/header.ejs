@@ -1,0 +1,132 @@
+<header class="w-100">
+
+    <%- include('../partials/modal-form-pet.ejs') %>
+    <%- include('../partials/modal-form-user.ejs') %>
+    <%- include('../partials/modal-termos-uso.ejs') %>
+    <%- include('../partials/modal-form-login.ejs') %>
+    <%- include('../partials/modal-form-redefinicao-senha.ejs') %>
+
+    <div id="reply_modal">
+
+        <% if (reply.danger.length > 0) { %>
+        
+            <div class="reply-modal">
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <ul>
+                        <% for(let i = 0; i < reply.danger.length; i++) { %>
+                            <li><%= reply.danger[i].msg %></li>
+                        <% } %>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+        <% } else if (reply.success.length > 0) { %>
+
+            <div class="reply-modal">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <p><%= reply.success[0].msg %></p>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+
+        <% } %>
+
+    </div>
+
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light w-100 pl-2 pr-3 py-2">
+        <!-- INÍCIO DA ÁREA DA LOGOMARCA NA BARRA DE NAVEGAÇÃO -->
+        <a class="navbar-brand mr-0 mr-lg-1 py-0" href="/home">
+            <div class="d-flex">
+                <div class="ctn_vetor_logo"><img src="img/vetor-cat-logo.png" width="100%"></div>
+                <div class="ml-1 mr-1">
+                    <p class="m-0 text-center" style="line-height: 1; color: rgb(108, 7, 202); font-family: Boogaloo; font-size: 26px;">
+                        Pet Lovers
+                    </p>
+                    <p class="m-0" style="font-size: 12px; color: whitesmoke;">
+                        A solução para encontrar seu pet
+                    </p>
+                </div>
+                <div class="ctn_vetor_logo"><img src="img/vetor-dog-logo.png" width="100%"></div>
+            </div>
+        </a>
+        <!-- FIM DA ÁREA DA LOGOMARCA -->
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-box" aria-controls="navbar-box" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div id="navbar-box" class="collapse navbar-collapse">
+           
+            <ul class="nav w-100 justify-content-around d-flex flex-column flex-lg-row">
+                
+                <li class="nav-item">
+                    <a class="nav-link text-light py-3" href="/home">Página Inicial</a>
+                </li>
+                
+                <li class="nav-item">
+                    <% if(isAuthenticated) { %>
+                        <a class="nav-link text-light py-3" href="/pretendentes">Ache um pretendente</a>
+                    <% } else { %>
+                        <a class="nav-link text-light py-3" data-toggle="modal" data-target="#modal-login" href="#">Ache um pretendente</a>
+                    <% } %>
+                </li>
+                <li class="nav-item">
+                    <% if(isAuthenticated) { %>        
+                        <a class="nav-link text-light py-3" href="/adocoes">Adoções</a>
+                    <% } else { %>
+                        <a class="nav-link text-light py-3" data-toggle="modal" data-target="#modal-login" href="#">Adoções</a>
+                    <% } %>
+                </li>
+                <li class="nav-item">
+                    <% if(isAuthenticated) { %>
+                        <a id="menu_link_cad_pet" class="nav-link text-light py-3" data-toggle="modal" 
+                        data-target="#modal-cad-pet" href="#">Inscreva seu Pet</a>
+                    <% } else { %>
+                        <a class="nav-link text-light py-3" data-toggle="modal" 
+                        data-target="#modal-login" href="#">Inscreva seu Pet</a>
+                    <% } %>
+                </li>
+                <% if(!isAuthenticated) { %>
+                    <li class="nav-item">
+                        <a class="nav-link text-light py-3" data-toggle="modal" data-target="#modal-login" href="#">Login</a>
+                    </li>
+                <% } else { %>
+                    <li class="nav-item dropdown">
+                        <!-- LINK DO ITEM DO MENU PRINCIPAL -->
+                        <a id="menu_link_nome_user" class="nav-link text-light dropdown-toggle py-3" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="#"><%= userData.nome_user %></a>
+
+                        <div class="dropdown-menu">
+
+                            <a class="dropdown-item" href="/meus_pets">Meus pets</a>
+
+                            <a id="menu_link_meus_dados_pessoais" class="dropdown-item" data-toggle="modal" data-target="#modal-form-user" data-id-user="<%= userData.id_user %>" href="#">Meus dados pessoais</a>
+                            
+                            <a id="menu_link_cancelar_minha_conta" class="dropdown-item" data-id-user="<%= userData.id_user %>" href="#">Cancelar minha conta</a>
+
+                            <a class="dropdown-item" href="/sair">Sair</a>
+                            
+                        </div>
+
+                    </li>
+                <% } %>
+
+                <% if(!isAuthenticated) { %>
+                    <li class="nav-item">
+                        <a id="menu_link_cad_user" class="nav-link text-light py-3" data-toggle="modal" data-target="#modal-form-user" href="#">Registre-se</a>
+                    </li>
+                <% } %>
+
+            </ul>
+            <!-- FIM DO MENU PRINCIPAL DA BARRA DE NAVEGAÇÃO -->
+            
+        </div>
+        <!-- FIM DO CONTAINER DO MENU PRINCIPAL DA BARRA DE NAVEGAÇÃO -->
+    </nav>
+
+</header>
+

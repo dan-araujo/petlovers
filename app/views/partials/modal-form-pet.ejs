@@ -1,0 +1,131 @@
+<div class="modal fade" id="modal-cad-pet" tabindex="-1" role="dialog" aria-labelledby="modalCadPetLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal_content">
+  
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalCadPetLabel">Cadastro de Pets</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Fechar">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+  
+        <div class="modal-body">
+
+            <form id="form_pet" action="/pets/cadastrar" method="POST" enctype="multipart/form-data">
+            
+                <div class="form-group">
+                    <label for="nome_pet" class="col-form-label">Nome<span>*</span></label>
+                    <input type="text" class="form-control" id="nome_pet" name="nome_pet" value="<%= formData.nome_pet %>">
+                </div>
+                <div class="d-flex w-100">
+                    <div class="form-group w-50 mr-1">
+                        <label for="especie" class="col-form-label">Espécie<span>*</span></label>
+                        <input type="text" class="form-control" id="especie" name="especie" value="<%= formData.especie %>">
+                    </div>
+                    <div class="form-group w-50 ml-1">
+                        <label for="raca" class="col-form-label">Raça<span>*</span></label>
+                        <input type="text" class="form-control" id="raca" name="raca" value="<%= formData.raca %>">
+                    </div>
+                </div>
+                <div class="d-flex w-100 mb-2">
+                    <div class="w-50">
+                        <p class="mb-1">Sexo<span style="color: red;">*</span></p>
+                        <div class="form-check w-50">
+                            <% if(formData.sexo === undefined || formData.sexo === 'Fêmea') { %>
+                                <input type="radio" class="form-check-input" id="macho" name="sexo" value="Macho">
+                            <% } else { %>
+                                <input type="radio" class="form-check-input" id="macho" name="sexo" value="Macho" checked>
+                            <% } %>
+                            <label for="macho" class="form-check-label">Macho</label>
+                        </div>
+                        <div class="form-check w-50">
+                            <% if(formData.sexo === undefined || formData.sexo === 'Macho') { %>
+                                <input type="radio" class="form-check-input" id="femea" name="sexo" value="Fêmea">
+                            <% } else { %>
+                                <input type="radio" class="form-check-input" id="femea" name="sexo" value="Fêmea" checked>
+                            <% } %>
+                            <label for="femea" class="form-check-label">Fêmea</label>
+                        </div>
+                    </div>
+                    <div class="w-50">
+                        <p class="mb-1">Disponível para<span style="color: red;">*</span></p>
+                        <div class="form-check w-50">
+                            <% if(formData.disp === undefined || formData.disp === 'pretendentes') { %>
+                                <input type="radio" class="form-check-input" id="adocoes" name="disp" value="adocoes">
+                            <% } else { %>
+                                <input type="radio" class="form-check-input" id="adocoes" name="disp" value="adocoes" checked>
+                            <% } %>
+                            <label for="adocoes" class="form-check-label">Adoções</label>
+                        </div>
+                        <div class="form-check w-50">
+                            <% if(formData.disp === undefined || formData.disp === 'adocoes') { %>
+                                <input type="radio" class="form-check-input" id="pretendentes" name="disp" value="pretendentes">
+                            <% } else { %>
+                                <input type="radio" class="form-check-input" id="pretendentes" name="disp" value="pretendentes" checked>
+                            <% } %>
+                            <label for="pretendentes" class="form-check-label">Pretendentes</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-flex w-100">
+                    <div class="form-group flex-grow-1 mr-1">
+                        <label for="bairro_pet" class="col-form-label">Bairro<span>*</span></label>
+                        <input type="text" class="form-control" id="bairro_pet" name="bairro_pet" value="<%= formData.bairro_pet %>">
+                    </div>
+                    <div class="form-group flex-grow-1 ml-1 mr-1">
+                        <label for="cidade_pet" class="col-form-label">Cidade<span>*</span></label>
+                        <input type="text" class="form-control" id="cidade_pet" name="cidade_pet" value="<%= formData.cidade_pet %>" maxlength="30">
+                    </div>
+                    <div class="form-group ml-1 mb-0">
+                        <label for="uf_pet" class="col-form-label">UF<span>*</span></label>
+                        <select class="custom-select" id="uf_pet" name="uf_pet" data-uf="<%= formData.uf_pet %>">
+                            <option selected>-</option>  
+                            <option value="AC">AC</option>
+                            <option value="AL">AL</option>
+                            <option value="AP">AP</option>
+                            <option value="AM">AM</option>
+                            <option value="BA">BA</option>
+                            <option value="CE">CE</option>
+                            <option value="DF">DF</option>
+                            <option value="ES">ES</option>
+                            <option value="GO">GO</option>
+                            <option value="MA">MA</option>
+                            <option value="MT">MT</option>
+                            <option value="MS">MS</option>
+                            <option value="MG">MG</option>
+                            <option value="PA">PA</option>
+                            <option value="PB">PB</option>
+                            <option value="PR">PR</option>
+                            <option value="PE">PE</option>
+                            <option value="PI">PI</option>
+                            <option value="RJ">RJ</option>
+                            <option value="RN">RN</option>
+                            <option value="RS">RS</option>
+                            <option value="RO">RO</option>
+                            <option value="RR">RR</option>
+                            <option value="SC">SC</option>
+                            <option value="SP">SP</option>
+                            <option value="SE">SE</option>
+                            <option value="TO">TO</option>
+                        </select>
+                    </div>
+                </div>
+                <div id="ctn_input_file">
+                    <div class="form-group">
+                        <label for="foto" class="col-form-label">Foto<span>*</span></label>
+                        <input type="file" class="form-control-file" name="foto1">
+                    </div>
+                </div>
+                    
+            </form>
+
+        </div>
+  
+        <div class="modal-footer modal_footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+            <button id="btn_cad_pet" type="button" class="btn btn-primary">Cadastrar</button>
+            <button id="btn_update_pet" type="button" class="btn btn-primary d-none">Salvar</button>
+        </div>
+      </div>
+    </div>
+  </div>
