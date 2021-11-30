@@ -1,5 +1,5 @@
 # Petlovers
-### Projeto Social para pessoas encontrar parceiros para os seus pets, bem como adotá-los
+### Projeto Social que busca suprir a carência de tutores com dificuldades em encontrar parceiros para seus animais, com intuito único de reprodução, além de viabilizar a adoção desses pets.
 
 #### Linguagens utilizadas:
 * HTML & CSS
