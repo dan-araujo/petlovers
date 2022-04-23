@@ -13,8 +13,6 @@
 * Nodemailer
 * Express-session 
 
-Link da nossa primeira versão do site: http://petlovers.kinghost.net/home
-
 ![petlovers demonstração](petlovers.png)
 
 
